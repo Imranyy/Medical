@@ -20,23 +20,25 @@ export default function Home() {
           icon:`fa fa-user`,
           name:"Improve your health."
       }
-    ])
-    //
-    const [goal,setGoal]=useState('');
-    const text=`  Our objective is ensuring healthy living and protect sick people from developing diseases. Your feedback will help our model learn.`
-    var curr=0
+    ]);
+
+    const goal='Our objective is ensuring healthy living and protect sick people from developing diseases. Your feedback will help our model learn.'
+    var curr=0;
+    const write=()=>{
+        const text=document.querySelector('.small-first-text');
+        text.textContent+=goal.charAt(curr);
+        curr++;
+        if(curr<goal.length){
+            setTimeout(write,50)
+        }
+    }
     useEffect(()=>{
-      if(curr<text.length){
-        setInterval(()=>{
-          setGoal((value)=>value+text.charAt(curr))
-          curr++
-        },50)
-      }
+      write();
     },[])
     
     const start=()=>{
-      setGoal('');
       setStartInfo([]);
+      document.querySelector('.small-first-text').textContent=''
       document.querySelector('.new-check-up').classList.add('checked')
 
     }
@@ -65,7 +67,7 @@ export default function Home() {
             </div>
         </div>
         <div className={styles.window}>
-            <small>{goal}</small><br/>
+            <small className='small-first-text'></small><br/>
             <div className={styles.startInfo}>
               {startInfo.map(i=>(
                 <div className={styles.tab} key={i.id}>

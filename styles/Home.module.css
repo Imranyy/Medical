@@ -92,18 +92,18 @@
 .window form button i{
     font-size: 20px;
 }
-.text-response{
+.textResponse{
     display: flex;
     flex-direction: column;
     width: 90%;
 }
-.text-response .req{
+.req{
     margin: 30px 0 -15px 0;
 }
-.text-response .req::before{
+.req::before{
     content: '';
 }
-.text-response .text{
+.text{
     border-radius: 5px;
     background: rgb(2, 12, 78);
     padding: 10px 15px;
@@ -113,7 +113,7 @@
     width: 70vw;
 }
 
-.text-error{
+.textError{
     position: fixed;
     top: 100px;
     z-index: 100;
